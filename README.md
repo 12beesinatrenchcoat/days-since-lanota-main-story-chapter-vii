@@ -9,4 +9,6 @@ It was released September 7, 2021.
 # License
 This project makes use of the font [Kawoszeh](https://www.dafont.com/kawoszeh.font), which was created by gluk, and is under the OFL.
 
+[Lanota](https://noxygames.com/lanota/) belongs to Noxy Games.
+
 My code is under [the Unlicense](./LICENSE.txt).
