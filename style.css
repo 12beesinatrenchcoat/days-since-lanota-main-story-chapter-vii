@@ -1,0 +1,57 @@
+@font-face {
+    font-family: 'Kawoszeh';
+    src: url('./assets/kawoszeh-webfont.woff2') format('woff2'),
+        url('./assets/kawoszeh-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Parabola";
+    src: url('./assets/parabola-regular-webfont.woff') format('woff'),
+        url('./assets/parabola-regular-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Kawoszeh";
+    text-align: center;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+p {
+    margin: 0;
+}
+
+a {
+    color: inherit;
+}
+
+main {
+    font-size: 1.5em;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#numbers {
+    margin: 2em;
+}
+
+#days {
+    font-size: 3.375em;
+}
+
+footer {
+    padding: 1em;
+    background: lightgrey;
+}
