@@ -6,25 +6,70 @@
     font-style: normal;
 }
 
-@font-face {
-    font-family: "Parabola";
-    src: url('./assets/parabola-regular-webfont.woff') format('woff'),
-        url('./assets/parabola-regular-webfont.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
-
-:root {
-    font-size: 16px;
-}
-
 body {
     font-family: "Kawoszeh";
     text-align: center;
     margin: 0;
     min-height: 100vh;
+
     display: flex;
     flex-direction: column;
+    background: url("./assets/center.png");
+    filter: brightness(1.05) saturate(0.9);
+
+    font-size: clamp(10px, 5px + 1.25vw, 24px);
+}
+
+#top,
+footer {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+
+#left,
+#right {
+    position: fixed;
+    width: 75px;
+    height: 100vh;
+    z-index: 50;
+}
+
+#top {
+    background:
+        url("./assets/menu_left.png") left no-repeat,
+        url("./assets/menu_right.png") right no-repeat,
+        url("./assets/menu.png") center repeat-x;
+    height: 100px;
+}
+
+footer {
+    background:
+        url("./assets/footer_left.png") left no-repeat,
+        url("assets/footer_right.png") right no-repeat,
+        url("./assets/footer.png") center repeat-x;
+    height: 150px;
+    bottom: 0;
+
+    display: flex;
+    align-items: end;
+    justify-content: center;
+
+}
+
+footer>p {
+    color: #600400;
+    text-shadow: 0 0 10px #600400;
+    margin: 20px 5em;
+}
+
+#left {
+    background: url("./assets/left.png") left repeat-y;
+}
+
+#right {
+    background: url("./assets/right.png") right repeat-y;
+    right: 0;
 }
 
 p {
@@ -41,17 +86,33 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    margin: 2em;
 }
 
-#numbers {
-    margin: 2em;
+main>* {
+    z-index: 999;
 }
 
 #days {
     font-size: 3.375em;
+    background-image: linear-gradient(#DFC3A1 50%, #765C4C);
+    color: transparent;
+    background-clip: text;
+    font-weight: bold;
 }
 
-footer {
-    padding: 1em;
-    background: lightgrey;
+#days::before {
+    position: absolute;
+    content: attr(data-value);
+    -webkit-text-stroke: 8px black;
+    text-wrap: nowrap;
+    z-index: -1;
+}
+
+#days-container {
+    width: max-content;
+    padding: 2em 10ch;
+    margin: -2.5em 0 -1em;
+    background: url("./assets/banner.svg") 50% 75%/100% no-repeat;
 }

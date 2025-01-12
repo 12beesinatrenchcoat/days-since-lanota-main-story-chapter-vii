@@ -8,40 +8,44 @@
 	</head>
 
 	<body>
+		<!-- Background elements -->
+		<div id="top"></div>
+		<div id="left"></div>
+		<div id="right"></div>
+
 		<main>
 			<p>It has been</p>
-			<div id="numbers">
-				<p id="days"><span id="day-count">XXXX</span> days</p>
-				<p id="hours">(and <span id="hour-count">XX</span> hours)</p>
+			<div id="days-container">
+				<p id="days" data-value=""><span id="day-count">XXXX</span> days</p>
 			</div>
-			<p>since Lanota Main Story Chapter VII "Escape and Destruction" was released.</p>
+			<p>since Lanota Main Story Chapter VII "Escape and Destruction"<br>was released.</p>
 		</main>
 
 		<footer>
-			<p>The release date is based on <a href="https://x.com/Noxy_Lanota_EN/status/1435139484681584643">this
-					tweet</a>, September 7, 2021 at 07:14 UTC.</p>
-			<p>This website is not affiliated with Noxy Games.</p>
-			<a href="https://github.com/12beesinatrenchcoat/days-since-lanota-main-story-chapter-vii">Source Code</a>
+			<p>
+				This website is not affiliated with Noxy Games.<br>
+
+				Release date based on <a href="https://x.com/Noxy_Lanota_EN/status/1435139484681584643">this tweet</a>
+				(September 7, 2021 @ 07:14 UTC).<br>
+
+				Source code is available on <a
+					href="https://github.com/12beesinatrenchcoat/days-since-lanota-main-story-chapter-vii">GitHub</a>.
+			</p>
 		</footer>
 
 		<script>
 			var releaseDate = new Date(1630998840000);
 
-			function update() {
-				var now = new Date();
-				// This is in milliseconds
-				var diff = now - releaseDate;
+			var now = new Date();
+			// This is in milliseconds
+			var diff = now - releaseDate;
 
-				var days = Math.floor(diff / 86_400_000);
-				var hours = Math.floor((diff % 86_400_000) / 3_600_000);
+			var days = Math.floor(diff / 86_400_000);
+			days = days.toLocaleString();
 
-				document.getElementById("day-count").textContent = days;
-				document.getElementById("hour-count").textContent = hours;
-			}
+			document.getElementById("day-count").textContent = days;
+			document.getElementById("days").setAttribute("data-value", days + " days");
 
-			update();
-			// Update every 5 minutes
-			setInterval(update(), 300_000)
 		</script>
 	</body>
 
