@@ -14,37 +14,85 @@
 		<div id="right"></div>
 
 		<main>
-			<p>It has been</p>
+			<p>It took</p>
 			<div id="days-container">
 				<p id="days" data-value=""><span id="day-count">XXXX</span> days</p>
 			</div>
-			<p>since Lanota Main Story Chapter VII "Escape and Destruction"<br>was released.</p>
+			<p>for Lanota Main Story Ch. VIII<br>“Heart of the Notalium of Life”<br>to be released.</p>
 		</main>
 
 		<footer>
 			<p>
-				This website is not affiliated with Noxy Games.<br>
-
-				Release date based on <a href="https://x.com/Noxy_Lanota_EN/status/1435139484681584643">this tweet</a>
-				(September 7, 2021 @ 07:14 UTC).<br>
-
-				Source code is available on <a
-					href="https://github.com/12beesinatrenchcoat/days-since-lanota-main-story-chapter-vii">GitHub</a>.
+				This website is not affiliated with <a href="https://noxygames.com/">Noxy Games</a>. <button
+					onclick="toggleModal()">More
+					info</button>
 			</p>
 		</footer>
 
+		<div id="modal" aria-modal="true">
+			<div>
+				<h2>More Info/Ramblings</h2>
+				<p>The font is <a href="https://www.dafont.com/kawoszeh.font">Kawoszeh by gluk</a>. The page's borders are taken
+					from
+					<a href="https://noxygames.com/lanota">Noxy Games/Lanota's website</a>. The source code for this site is <a
+						href="https://github.com/12beesinatrenchcoat/days-since-lanota-main-story-chapter-vii">on GitHub</a>.
+				</p>
+				<p>Dates are based on @Noxy_Lanota_EN's <a href="https://x.com/Noxy_Lanota_EN/status/1435139484681584643">2.6
+						(Main Story Ch. VII) release tweet</a> and later <a
+						href="https://x.com/Noxy_Lanota_EN/status/1907342242433348027">3.0 (Main Story Ch. VIII) release tweet</a>.
+				</p><br>
+				<p>This was made as a joke for a friend who was complaining about how long it was taking for Noxy Games to
+					continue Lanota's main story.</p>
+				<p>A few months later… they did it. They made it out of development hell. And I've heard good things about it!
+					(I still haven't played it. But I'll get to it eventually.)</p>
+				<p>Congratulations to Noxy Games on the release!</p>
+				<p>-Ayu</p>
+
+				<br>
+
+				<p>P.S. It's been <span id="days-since-vii">XXXX</span> days since Lanota Main Story Chapter VII "Escape and
+					Destruction" was released.
+				</p>
+			</div>
+
+			<button onclick="toggleModal()">close</button>
+		</div>
+
 		<script>
-			var releaseDate = new Date(1630998840000);
+			var ch7Date = new Date(1630998840000);
+			var ch8Date = new Date(1743580800000);
 
 			var now = new Date();
 			// This is in milliseconds
-			var diff = now - releaseDate;
+			var diffToNow = now - ch7Date;
+			var diffToCh8 = ch8Date - ch7Date;
 
-			var days = Math.floor(diff / 86_400_000);
-			days = days.toLocaleString();
+			var daysToCh8 = Math.floor(diffToCh8 / 86_400_000);
+			daysToCh8 = daysToCh8.toLocaleString();
 
-			document.getElementById("day-count").textContent = days;
-			document.getElementById("days").setAttribute("data-value", days + " days");
+			var daysToNow = Math.floor(diffToNow / 86_400_000);
+			daysToNow = daysToNow.toLocaleString()
+
+			document.getElementById("day-count").textContent = daysToCh8;
+			document.getElementById("days").setAttribute("data-value", daysToCh8 + " days");
+
+			document.getElementById("days-since-vii").textContent = daysToNow;
+
+			var modalOpen = false;
+			function toggleModal() {
+				if (modalOpen) {
+					document.getElementById("modal").style.display = "none";
+				} else {
+					document.getElementById("modal").style.display = "flex";
+				}
+				modalOpen = !modalOpen;
+			}
+
+			document.onkeydown = function (e) {
+				if (e.key === "Escape") {
+					toggleModal();
+				}
+			}
 
 		</script>
 	</body>
