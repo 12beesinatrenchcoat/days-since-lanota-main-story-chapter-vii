@@ -1,9 +1,14 @@
 @font-face {
     font-family: 'Kawoszeh';
-    src: url('./assets/kawoszeh/kawoszeh-webfont.woff2') format('woff2'),
-        url('./assets/kawoszeh/kawoszeh-webfont.woff') format('woff');
+    src: url('./assets/kawoszeh/kawoszeh-webfont.subset.woff2') format('woff2'),
+        url('./assets/kawoszeh/kawoszeh-webfont.subset.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+}
+
+* {
+    margin: 0;
+    color: inherit;
 }
 
 body {
@@ -14,7 +19,7 @@ body {
 
     display: flex;
     flex-direction: column;
-    background: url("./assets/center.png");
+    background: url("./assets/center.jpg");
 }
 
 #top,
@@ -70,12 +75,48 @@ footer>p {
     right: 0;
 }
 
-p {
-    margin: 0;
+main {
+    position: fixed;
+    top: 10%;
+    bottom: 10%;
+    left: -50%;
+    right: -50%;
+
+    font-size: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2em;
+    z-index: 99;
 }
 
-a {
-    color: inherit;
+#days {
+    font-size: 3.375em;
+    background-image: linear-gradient(#DFC3A1 50%, #765C4C);
+    color: transparent;
+    background-clip: text;
+    font-weight: bold;
+}
+
+#days::before {
+    position: fixed;
+    content: attr(data-value);
+    -webkit-text-stroke: 8px black;
+    text-wrap: nowrap;
+    z-index: -1;
+}
+
+#days-container {
+    width: max-content;
+    padding: 2em 10ch;
+    margin: -2.5em 0 -1em;
+    background: url("./assets/banner.svg") 50% 70%/100% no-repeat;
+}
+
+main> :last-child {
+    margin-top: -0.71em;
 }
 
 button {
@@ -88,43 +129,7 @@ button {
     text-shadow: inherit;
 }
 
-main {
-    font-size: 1.5em;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 2em;
-}
-
-main>* {
-    z-index: 999;
-}
-
-#days {
-    font-size: 3.375em;
-    background-image: linear-gradient(#DFC3A1 50%, #765C4C);
-    color: transparent;
-    background-clip: text;
-    font-weight: bold;
-}
-
-#days::before {
-    position: absolute;
-    content: attr(data-value);
-    -webkit-text-stroke: 8px black;
-    text-wrap: nowrap;
-    z-index: -1;
-}
-
-#days-container {
-    width: max-content;
-    padding: 2em 10ch;
-    margin: -2.5em 0 -1em;
-    background: url("./assets/banner.svg") 50% 75%/100% no-repeat;
-}
-
+/* wtf */
 #modal {
     display: flex;
     flex-direction: column;
