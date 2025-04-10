@@ -94,12 +94,13 @@ main {
 
 #days {
     font-size: 3.375em;
-    background-image: linear-gradient(#DFC3A1 50%, #765C4C);
+    background-image: linear-gradient(#F8DCC6, #FBDCBB 50%, #947061);
     color: transparent;
     background-clip: text;
     font-weight: bold;
 }
 
+/* This is for text border, as the base text is already masked */
 #days::before {
     position: fixed;
     content: attr(data-value);
@@ -111,12 +112,8 @@ main {
 #days-container {
     width: max-content;
     padding: 2em 10ch;
-    margin: -2.5em 0 -1em;
+    margin: -2.5em 0 -1.75em;
     background: url("./assets/banner.svg") 50% 70%/100% no-repeat;
-}
-
-main> :last-child {
-    margin-top: -0.71em;
 }
 
 button {
